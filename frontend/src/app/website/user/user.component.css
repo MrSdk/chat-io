@@ -1,0 +1,32 @@
+.user-date {
+
+}
+.online , .offline {
+    margin-right: 3%;
+}
+.online .onl {
+   width: 9px;
+   height: 9px;
+   border-radius: 100%;
+    background-color: green;
+}
+.online h6 {
+    margin-top: -4px;
+    color: limegreen
+}
+.offline h6 {
+    margin-top: -4px; 
+}
+.user-date .off {
+   width: 9px;
+   height: 9px;
+   border-radius: 100%;
+   background-color: red;
+}
+.to-right {
+   flex: 1 1 auto;
+}
+.my-user {
+    /* background-color: red; */
+    padding: 10px; 
+}

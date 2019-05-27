@@ -1,0 +1,15 @@
+<mat-toolbar color="accent">
+  <button *ngIf="!allow" routerLink="/" mat-stroked-button class="but"><b>Website</b></button>
+  <button *ngIf="allow" mat-stroked-button routerLink="/user" class="but"><mat-icon>home</mat-icon></button>
+  <button *ngIf="allow" mat-stroked-button routerLink="/chat" class="but"><mat-icon>chat</mat-icon></button>
+  
+  <span class="spacer"></span>
+  <button *ngIf="!allow" routerLink="/login" mat-raised-button color="accent" class="logout"><mat-icon>perm_identity</mat-icon></button>
+  <button *ngIf="!allow" routerLink="/registration" mat-raised-button color="accent" class="logout"><mat-icon>person_add</mat-icon></button>
+
+  <button (click)="logout()" *ngIf="allow" mat-raised-button color="accent" class="logout"><mat-icon>logout</mat-icon></button>
+</mat-toolbar>
+<br>
+<!-- <mat-card class="card" > -->
+  <router-outlet></router-outlet>
+<!-- </mat-card> -->

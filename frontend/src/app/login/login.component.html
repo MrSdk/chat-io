@@ -1,0 +1,14 @@
+ 
+<mat-card class="card" >
+    <form (submit)="login(f)" #f="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Login" ngModel name="login" required>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <input matInput placeholder="Password" ngModel name="password" required>
+      </mat-form-field>
+      <br> 
+      <button mat-raised-button color="accent"><mat-icon>perm_identity</mat-icon></button>
+    </form>
+  </mat-card> 

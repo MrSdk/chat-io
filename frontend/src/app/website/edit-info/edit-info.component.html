@@ -1,0 +1,71 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-8" style="margin: auto">
+      <mat-card>
+        <mat-tab-group>
+          <mat-tab label="Informations">
+            <div style="margin: 5px;">
+              <div class="row" style="margin: auto">
+                <button (click)="file.click()" mat-raised-button><b>Upload</b></button><br>
+                <img [src]="image" [alt]="user?.username" width="200" height="200">
+                <input (change)="changeImage($event)" style="visibility: hidden" type="file" #file>
+              </div>
+              <hr>
+              <!-- <h1 style="font-family: cursive"><b>{{ user?.username }}</b></h1> -->
+              <mat-form-field>
+                <input matInput placeholder="Login" [(ngModel)]="user.login">
+              </mat-form-field><br>
+              <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="user.username">
+              </mat-form-field>
+              <mat-form-field style="width: 80%">
+                <textarea style="background-color: #E7EAED; padding: 5px" matInput [(ngModel)]="user.status" rows="5"
+                  placeholder="Status.."></textarea>
+              </mat-form-field>
+              <button (click)="clickInfo()" mat-raised-button color="accent">Save informations</button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Password">
+            <div style="margin: 5px;">
+              <h4 class="text-center">Change password</h4>
+              <mat-form-field>
+                <input matInput placeholder="Current password" [(ngModel)]="passwordInfo.current">
+              </mat-form-field><br>
+              <mat-form-field>
+                <input matInput placeholder="New password" [(ngModel)]="passwordInfo.newPass">
+              </mat-form-field><br>
+              <div *ngIf="passwordInfo.newPass?.length < 6" class="input-error">
+                <h6>Password must be bigger than 6</h6>
+              </div>
+              <mat-form-field>
+                <input matInput placeholder="Again new password" [(ngModel)]="passwordInfo.newPass2">
+              </mat-form-field><br>
+              <div class="input-error">
+                <div *ngIf="passwordInfo.newPass2?.length < 6">
+
+                  <h6>Password must be bigger than 6</h6>
+                </div>
+                <div *ngIf="passwordInfo.newPass2 !== passwordInfo.newPass">
+                  <h6>Password incorrect!</h6>
+                </div>
+
+              </div><BR>
+
+              <button (click)="clickPass()" mat-raised-button color="accent">Save password</button>
+            </div>
+          </mat-tab>
+          <mat-tab label="Accaunt">
+            <div style="margin: 10px;">
+              <h5 >Are you sure to delete your accaunt ?</h5>
+              <button (click)="onDelete()" mat-stroked-button color="accent">Delete Accaunt</button>
+            </div>
+
+          </mat-tab>
+        </mat-tab-group>
+
+      </mat-card>
+
+    </div>
+  </div>
+</div>

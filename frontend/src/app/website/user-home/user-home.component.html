@@ -1,0 +1,80 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-8" style="margin: auto">
+      <mat-card>
+        <div class="row">
+          <div class="col-sm-5">
+            <div>
+              <mat-card>
+                <button routerLink="/edit" mat-button color="accent">edit</button>
+                <div class="text-center">
+                  <img [src]="user?.avatar" style="border-radius: 50%" [alt]="user?.username" width="200" height="200">
+                  <h1 style="font-family: cursive"><b>{{ user?.username }}</b></h1>
+
+
+                  <div class="user-date">
+
+                    <div *ngIf="condition" class="online">
+
+                      <div class="row">
+                        <span class="to-right"></span>
+                        <div class="col-sm-0">
+                          <div class="onl"></div>
+                        </div>
+                        <div class="col-sm-0">
+                          <h6><b>Online</b></h6>
+                        </div>
+                      </div>
+
+                    </div>
+                    <div *ngIf="!condition" class="offline">
+                      <div class="row">
+                        <span class="to-right"></span>
+                        <div class="col-sm-0">
+                          <div class="off"></div>
+                        </div>
+                        <div class="col-sm-0">
+                          <h6><b>{{ lastTime }}</b></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-group" >
+                  <li class="list-group-item" style="text-align: left; background-color: #E7EAED">{{ user?.status }}</li>
+                </ul>
+              </mat-card>
+
+            </div>
+          </div>
+          <div class="col-sm-7 msg-list">
+            <mat-card>
+              <div *ngFor="let idUser of necessaryUsers" class="msg-a-list">
+                  <button *ngIf="getUserData(idUser?.user_id); else noUser" (click)="goPrivateChat(idUser?.user_id)" mat-raised-button matBadge="{{ idUser?.unLooked !== 0 ? idUser?.unLooked : '' }}" matBadgePosition="before" matBadgeColor="accent">
+                    
+                        <div class="row" style="margin: 5px">
+                            <div class="col-sm-2"><img src="{{ getUserData(idUser?.user_id)?.avatar }}" alt="{{ getUserData(idUser?.user_id)?.username }}"></div>
+                            <div class="col-sm-5" style="margin-left: 10%;margin-top: 10px"><h4>{{ getUserData(idUser?.user_id)?.username }}</h4></div>
+                        </div>
+                  </button>
+                  
+                  <ng-template #noUser>
+                      <button mat-raised-button matBadge="{{ idUser?.unLooked !== 0 ? idUser?.unLooked : '' }}" matBadgePosition="before" matBadgeColor="accent">
+                
+                      <div class="row" style="margin: 5px">
+                            <div class="col-sm-2"><img src="assets/user-default.png" alt="Has user"></div>
+                            <div class="col-sm-5" style="margin-left: 10%;margin-top: 10px"><h4>Deleted accaunt</h4></div>
+                        </div>
+                      </button>
+                  </ng-template>
+                  
+              </div>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

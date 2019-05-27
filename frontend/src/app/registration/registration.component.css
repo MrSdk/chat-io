@@ -1,0 +1,19 @@
+.card { 
+    width: 60%;
+    margin: 10px auto;
+    /* vertical-align: middle; */
+    padding: 30px;
+}
+mat-form-field {
+    width: 100%;
+}
+.but-file {
+    border: 1px solid black;
+}
+.pas-danger { 
+    margin-top: -30px;
+    margin-bottom: -30px;
+ }
+.pas-danger h6{
+    color: red;
+}

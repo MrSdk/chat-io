@@ -1,0 +1,97 @@
+<div class="container" style="margin-bottom: 50px">
+  <div class="row">  
+    <div class="col-sm-10" style="margin: auto">
+      <mat-card>
+        <div class="chat">
+          <a href="/chat#down" class="downer" color="accent" mat-mini-fab>
+            <mat-icon>arrow_downward</mat-icon>
+          </a>
+
+          <div *ngFor="let message of messages;let i = index">
+
+            <div class="msg" *ngIf="!hasAvatar(message)">
+            </div>
+            <div class="date">
+              <h5><i>{{ message.day | date}}</i></h5>
+            </div>
+            <div *ngIf="message.user_id !== user._id" class="row message-top">
+              <div class="col-sm-1 image" style="margin-top: -5px">
+                <div *ngIf="getAvatar(message.user_id);else default">
+                  <a routerLink="/user/{{ message.user_id }}" *ngIf="hasAvatar(message)" class="user">
+                    <img style="margin-bottom: -5px;" src="{{ getAvatar(message.user_id)?.avatar }}" alt="User">
+                    <span >{{ getAvatar(message.user_id)?.username }}</span>
+                    
+                  </a>
+                </div>
+                <ng-template #default>
+                  <img style="margin-bottom: -5px;" src="assets/user-default.png" alt="User">
+                  <span>Deleted</span>
+                </ng-template>
+              </div>
+              <div class="col-sm-8">
+                <div class="message">
+
+                  <p>{{ message?.message }}</p>
+                  <div *ngIf="message.iconUpd" class="editor-icon">
+                      <mat-icon>build</mat-icon>
+                  </div>
+                  <div class="hour">
+                    <h6> {{ message?.date | date:"HH:mm" }}</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="message.user_id === user._id" class="row message-top">
+              <span class="to-right"></span>
+              <div class="col-sm-6">
+                <div class="message-me">
+                  <p>{{ message?.message }}</p>
+                  <div class="basic-but">
+                    <a (click)="onEditText(message)" style="color:tan"><mat-icon>border_color</mat-icon></a>
+                    <a (click)="onDelete(message._id)" style="color:navajowhite"><mat-icon>delete</mat-icon></a>
+                  </div>
+                  <div *ngIf="message.iconUpd" class="editor-icon">
+                      <mat-icon>build</mat-icon>
+                  </div>
+                  <div class="hour">
+                    <h6> {{ message?.date | date:"HH:mm" }}</h6>
+                    <!-- <h6> {{ message?.date | date:"HH:mm" }}</h6> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div id="down"> </div>
+
+        </div>
+
+        <!-- <div class="container"> -->
+        <hr>
+        <div class="row fixed" style="margin: auto">
+          <div class="col-sm-10 cen">
+
+            <div class="card">
+              <div class="header">
+                <mat-form-field style="width: 100%">
+                  <!-- <input  type="text"> -->
+                  <textarea (input)="changeInput(text.value)" #text [(ngModel)]="message" matInput cols="20" rows="3" placeholder="Say something.."></textarea>
+                </mat-form-field>
+              </div>
+
+
+              <button *ngIf="!onEdit" (click)="send()" mat-raised-button color="accent">
+                <div class="bigger"> Send </div>
+              </button>
+              <button *ngIf="onEdit" (click)="edit()" mat-raised-button color="accent">
+                <div class="bigger"> Edit </div>
+              </button>
+
+            </div>
+          </div>
+        </div>
+        <!-- </div> -->
+      </mat-card>
+    </div>
+  </div>
+</div>

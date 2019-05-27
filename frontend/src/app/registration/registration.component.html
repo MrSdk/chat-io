@@ -1,0 +1,52 @@
+ 
+    <mat-card class="card" >
+        <form [formGroup]="form">
+          <mat-form-field>
+            <input matInput placeholder="Login" formControlName="login" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" required>
+          </mat-form-field><br>
+          
+          <!-- <div *ngIf="form.get('password').errors.minlength"> -->
+            <div *ngIf="form.get('password').errors as error">
+              <!-- <div *ngIf="error"> -->
+                  <div class="pas-danger" *ngIf="error.minlength as minLen"><br>
+                      <h6>Password must bigger than {{minLen.requiredLength}} </h6>
+                  </div> 
+      
+            </div>
+          <!-- </div> -->
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Confirm Password" formControlName="password2" required>
+          </mat-form-field>
+          <!-- <div *ngIf="form.get('password2').errors.minlength"> -->
+            <div style="margin-bottom: 5px;" *ngIf="form.get('password2').errors as error">
+              
+                  <div class="pas-danger" *ngIf="error.minlength as minLen"><br>
+                      <h6>Password must bigger than {{minLen.requiredLength}} </h6>
+                  </div> 
+            <!-- </div> -->
+          </div>
+          <br>
+            <div  class="pas-danger" *ngIf="form.get('password').value !== form.get('password2').value">
+                <br><h6 >Password incorrect!</h6>
+            </div>
+          
+          <br>
+          <mat-form-field>
+            <input matInput placeholder="Username" formControlName="username" required>
+          </mat-form-field>
+          <br>
+          <button mat-stroked-button (click)="file.click()" class="but-file">Upload</button>
+          <input type="file" style="visibility: hidden"  (change)="changedFile($event)" #file>
+          <br>
+            <div *ngIf="image && image != ''">
+              <img style="margin-top: 5px;width: 300px; height: 300px;" [src]="image" [alt]="form.get('username').value">
+            </div>
+          <br>
+          <button (click)="signup()" mat-raised-button color="accent"><mat-icon>person_add</mat-icon></button>
+        </form>
+      </mat-card> 

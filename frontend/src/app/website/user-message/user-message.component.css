@@ -1,0 +1,164 @@
+
+div.card {
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+  
+  div.header { 
+      color: black;
+      margin: -10px 5px;
+      /* font-size: 40px; */
+  }
+  
+  div.bigger {
+      padding: 10px;
+  }
+  .fixed {
+      position: relative;
+  }
+  .cen {
+      margin-left: auto;
+      margin-right: auto;
+      /* vertical-align: middle; */
+  }
+  .message-top {
+      margin: 5px;
+  }
+  .message-top img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+  }
+  .message-top .image {
+    width: 50px;
+    height: 50px;
+  }
+  /* .message-top .image span{
+    background-color: red
+  } */
+  .message-top .message {
+      padding: 10px;
+      background-color:peru;
+      border-bottom-left-radius: 30px;
+      /* border-bottom-right-radius: 30px; */
+      border-top-right-radius: 30px;
+  }
+  .message-top .message p{
+    font-size: 85%;
+    letter-spacing: 2px;
+    text-indent: 50px;
+  }
+  .chat {
+      max-height: 400px;
+      overflow-y: scroll;
+  }
+  .chat .message h6{
+      color:white;
+  }
+  .chat .message .hour{
+    position: absolute;
+    bottom: 0;
+    right: 5%;
+  }
+  .chat .message .hour h6 {
+      font-family: Geneva;
+  }
+  .chat .date {
+      text-align: center;
+  }
+  .msg {
+      margin-top: -7px;
+  }
+  .downer {
+    z-index: 1;  
+    text-decoration: none;
+    position: absolute;
+    left: 1%;
+    bottom: 30%
+  }
+  .message-me {
+    padding: 10px;
+    background-color: darkslateblue;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+  }  
+  .message-me p{
+    color: white;
+    font-size: 85%;
+    letter-spacing: 2px;
+    text-indent: 50px;
+  }
+  .chat .message-me h6{
+    color:lightsalmon;
+  }
+  .chat .message-me .hour{
+    position: absolute;
+    bottom: 0;
+    right: 9%;
+  }
+  .chat .message-me .hour h6 {
+      font-family: Geneva;
+  }
+  .to-right {
+    margin-right: 5%
+  } 
+  .user {
+     cursor: pointer;
+
+  }
+  .user span{
+    color: black;
+    text-align: center;
+  }
+  .basic-but {
+    margin-bottom: -7px;
+    margin-left: 5px;
+  }
+  .basic-but a{
+    text-decoration: none; 
+    cursor: pointer;
+  }
+  .basic-but mat-icon {
+    font-size: 15px;
+  }
+  .editor-icon mat-icon {
+    color: white;
+    font-size: 15px;
+  }
+  .editor-icon {
+    position: absolute;
+    right: 13px;
+    top: 5px
+  } 
+  .online .onl {
+     width: 9px;
+     height: 9px;
+     border-radius: 100%;
+      background-color: green;
+      margin-right: 3px;
+      margin-top: 2px;
+  }
+  .online h6 {
+      margin-top: -4px;
+      color: limegreen
+  }
+  .offline h6 {
+      margin-top: -4px; 
+  }
+  .user-date .off {
+     width: 9px;
+     height: 9px;
+     border-radius: 100%;
+     background-color: red;
+     margin-right: 3px;
+     margin-top: 2px;
+  } 
+  .my-user {
+      /* background-color: red; */
+      padding: 10px; 
+  } 
+  .to-right2 {
+    flex: 1 1 auto
+  }
